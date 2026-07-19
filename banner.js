@@ -1,4 +1,4 @@
-
+(function() {
 
 const EU_COUNTRIES = [
   "AL", // Albania
@@ -265,11 +265,11 @@ geoConfig: {
     transition: 'all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important',
         
        accept: {
-    background: '#ffd777 !important',
+    background: '#4fd1c5 !important',
     color: '#000 !important',
     border: '1px solid #ffd777 !important',
     hover: {
-        background: '#ffd777 !important',
+        background: '#F6AD55 !important',
         color: '#000 !important',
         transform: 'translateY(-1px) !important'
     }
@@ -2630,7 +2630,7 @@ function injectConsentHTML(detectedCookies, language = 'en') {
     .cookie-consent-banner {
         position: fixed;
         bottom: 20px;
-        ${config.behavior.bannerPosition === 'left' ? 'left: 20px;' : 'right: 20px;'}
+        ${config.behavior.bannerPosition === 'right' ? 'right: 20px;' : 'left: 20px;'}
         width: ${config.bannerStyle.width};
         background: ${config.bannerStyle.background};
         border-radius: ${config.bannerStyle.borderRadius};
@@ -4792,3 +4792,4 @@ if (typeof window !== 'undefined') {
         setBlurDensity: setBlurDensity
     };
 }
+}());

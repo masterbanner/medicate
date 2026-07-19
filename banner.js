@@ -54,6 +54,10 @@ const EU_COUNTRIES = [
   "VA", // Vatican City
 ];
 
+const checkDomain = 'medicatie.nu';
+  if(location.hostname !== checkDomain) return;
+
+  
 // Single consolidated function to check if visitor is from EEA/UK/CH
 function isEEAVisitor() {
     if (!locationData || !locationData.country) {
@@ -68,7 +72,7 @@ function isEEAVisitor() {
 const config = {
     
     // Privacy policy URL (configurable)
-    privacyPolicyUrl: 'https://ab-peptides.com/privacybeleid', // Add your full privacy policy URL here
+    privacyPolicyUrl: 'https://medicatie.nu/artikelen', // Add your full privacy policy URL here
 
 
     // NEW: Cookie Banner Trigger Configuration
@@ -153,9 +157,9 @@ clarityConfig: {
         
         showFloatingButton: true,
         showAdminButton: false,
-        floatingButtonPosition: 'left',
-        adminButtonPosition: 'left',
-        bannerPosition: 'left',
+        floatingButtonPosition: 'right',
+        adminButtonPosition: 'right',
+        bannerPosition: 'right',
 
 
        
@@ -266,12 +270,13 @@ geoConfig: {
         
        accept: {
     background: '#4fd1c5 !important',
-    color: '#000 !important',
-    border: '1px solid #ffd777 !important',
+    color: 'white !important',
+    border: '1px solid #4fd1c5 !important',
     hover: {
         background: '#F6AD55 !important',
         color: '#000 !important',
-        transform: 'translateY(-1px) !important'
+        transform: 'translateY(-1px) !important',
+        border: '1px solid #F6AD55 !important',
     }
         },
         
@@ -313,13 +318,13 @@ geoConfig: {
     // Floating button styling
     floatingButtonStyle: {
         size: '50px',
-        background: '#ffd777 !important',
+        background: '#4fd1c5 !important',
         iconColor: '#000',
         border: '2px solid #ffffff',
         borderRadius: '50%',
         boxShadow: '0 6px 20px rgba(0, 0, 0, 0.2)',
         hover: {
-            background: '#ffd777 !important',
+            background: '#4fd1c5 !important',
             transform: 'translateY(-3px) scale(1.05)',
             boxShadow: '0 8px 25px rgba(0, 0, 0, 0.3)'
         }

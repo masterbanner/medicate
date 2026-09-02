@@ -54,8 +54,9 @@ const EU_COUNTRIES = [
   "VA", // Vatican City
 ];
 
-const checkDomain = 'medicatie.nu';
-  if(location.hostname !== checkDomain) return;
+function DomainCheck() {
+    return location.hostname === 'medicatie.nu';
+}
 
   
 // Single consolidated function to check if visitor is from EEA/UK/CH
@@ -72,7 +73,7 @@ function isEEAVisitor() {
 const config = {
     
     // Privacy policy URL (configurable)
-    privacyPolicyUrl: 'https://medicatie.nu/artikelen', // Add your full privacy policy URL here
+    privacyPolicyUrl: 'https://medicatie.nu/privacybeleid', // Add your full privacy policy URL here
 
 
     // NEW: Cookie Banner Trigger Configuration
@@ -119,7 +120,7 @@ const config = {
   // Microsoft Clarity Configuration
 clarityConfig: {
     enabled: true,
-    projectId: 'test-clarity-demo-12345', // Replace with your actual Clarity ID
+    projectId: 'wm5c57bc9d', // Replace with your actual Clarity ID
     requireConsent: true, // Set to true to require consent before loading
     autoDetectRegion: true, // Automatically detect EEA/UK/CH visitors
     defaultConsent: 'denied', // Default to denied until consent is given
@@ -4213,8 +4214,6 @@ function setBlurDensity(density) {
 
 
 
-
-
 // Cookie consent functions
 function acceptAllCookies() {
 
@@ -4638,8 +4637,7 @@ function updateConsentMode(consentData) {
                 'src': 'update',
                 'asc': uetConsentState === 'granted' ? 'G' : 'D',
                 'timestamp': new Date().toISOString()
-            },
-            'location_data': locationData
+            }
         });
     }
     
@@ -4704,6 +4702,10 @@ function loadPerformanceCookies() {
 // Main execution flow
 document.addEventListener('DOMContentLoaded', async function() {
     // Ensure location data is loaded first
+if (!DomainCheck()) {
+        return;
+    }
+  
     try {
         if (!sessionStorage.getItem('locationData')) {
             locationData = await fetchLocationData(); // This will now push to dataLayer

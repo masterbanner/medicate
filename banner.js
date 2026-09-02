@@ -450,8 +450,7 @@ if (typeof window.uetq === 'undefined') {
                 'msd': config.uetConfig.msd,
                 'tag_id': config.uetConfig.defaultTagId,
                 'auto_detect': config.uetConfig.autoDetectTagId
-            },
-            'timestamp': new Date().toISOString()
+            }
         });
     }
 }
@@ -481,8 +480,7 @@ window.dataLayer.push({
         'functionality_storage': 'denied',
         'security_storage': 'granted'
     },
-    'gcs': 'G100', // Explicit initial GCS signal
-    'timestamp': new Date().toISOString()
+    'gcs': 'G100' // Explicit initial GCS signal
 });
 
 // Set default UET consent
@@ -1715,12 +1713,6 @@ if (savedLocation) {
 } else {
     // If no saved data, fetch fresh data
     fetchLocationData().then(() => {
-        // Push to dataLayer after we have the data
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({
-            'event': 'locationInitialized',
-            'timestamp': new Date().toISOString()
-        });
     });
 }
 // Function to fetch location data
@@ -1856,8 +1848,7 @@ function pushGeoDataToDataLayer(geoData) {
             'asn': geoData.asn || '',
             'continent': geoData.continent || '',
             'hostname': geoData.hostname || ''
-        },
-        'timestamp': new Date().toISOString()
+        }
     };
     
     // Add location_data flat structure for backward compatibility
@@ -1866,7 +1857,6 @@ function pushGeoDataToDataLayer(geoData) {
         'city': geoData.city || ''
     };
     
-    window.dataLayer.push(geoDataEvent);
 }
 
 // Function to map countries to their respective continents
@@ -3793,8 +3783,7 @@ function sendClarityConsentSignal(consentGranted) {
             // Push to dataLayer for tracking
             window.dataLayer.push({
                 'event': 'clarity_consent_signal',
-                'clarity_consent': consentGranted,
-                'timestamp': new Date().toISOString()
+                'clarity_consent': consentGranted
             });
         }
     } catch (error) {
@@ -4230,8 +4219,7 @@ function acceptAllCookies() {
             performance: true,
             advertising: true,
             uncategorized: true
-        },
-        timestamp: new Date().getTime()
+        }
     };
     
     // Restore stored query parameters when accepting cookies
@@ -4279,8 +4267,7 @@ function rejectAllCookies() {
             performance: false,
             advertising: false,
             uncategorized: false
-        },
-        timestamp: new Date().getTime()
+        }
     };
     
     setCookie('cookie_consent', JSON.stringify(consentData), 365);
@@ -4342,8 +4329,7 @@ function saveCustomSettings() {
             advertising: advertisingChecked,
             uncategorized: document.querySelector('input[data-category="uncategorized"]') ? 
                 document.querySelector('input[data-category="uncategorized"]').checked : false
-        },
-        timestamp: new Date().getTime()
+        }
     };
     
     setCookie('cookie_consent', JSON.stringify(consentData), 365);
@@ -4577,8 +4563,7 @@ function sendClarityConsentSignal(consentGranted) {
         window.dataLayer.push({
             'event': 'clarity_consent_signal',
             'clarity_consent': consentGranted,
-            'clarity_region': locationData?.country || 'unknown',
-            'timestamp': new Date().toISOString()
+            'clarity_region': locationData?.country || 'unknown'
         });
     } catch (error) {
         console.error('Failed to send Clarity consent signal:', error);
@@ -4635,8 +4620,7 @@ function updateConsentMode(consentData) {
                 'ad_storage': uetConsentState,
                 'status': consentData.status,
                 'src': 'update',
-                'asc': uetConsentState === 'granted' ? 'G' : 'D',
-                'timestamp': new Date().toISOString()
+                'asc': uetConsentState === 'granted' ? 'G' : 'D'
             }
         });
     }

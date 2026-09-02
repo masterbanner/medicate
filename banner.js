@@ -119,7 +119,7 @@ const config = {
      // Microsoft Clarity Configuration
   // Microsoft Clarity Configuration
 clarityConfig: {
-    enabled: true,
+    enabled: false,
     projectId: 'wm5c57bc9d', // Replace with your actual Clarity ID
     requireConsent: true, // Set to true to require consent before loading
     autoDetectRegion: true, // Automatically detect EEA/UK/CH visitors
@@ -130,7 +130,7 @@ clarityConfig: {
 
     // Microsoft UET Configuration
     uetConfig: {
-        enabled: true,
+        enabled: false,
         defaultTagId: '137027166', // Fallback if auto-detection fails
         autoDetectTagId: true,     // Try to detect UET tag ID automatically
         defaultConsent: 'denied',  // 'denied' or 'granted'

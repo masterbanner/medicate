@@ -156,7 +156,7 @@ clarityConfig: {
             blurDensity: '5px'      // Control blur intensity
         },
         
-        showFloatingButton: true,
+        showFloatingButton: false,
         showAdminButton: false,
         floatingButtonPosition: 'right',
         adminButtonPosition: 'right',
@@ -274,10 +274,10 @@ geoConfig: {
     color: 'white !important',
     border: '1px solid #4fd1c5 !important',
     hover: {
-        background: '#F6AD55 !important',
-        color: '#000 !important',
+        background: '#4fd1c5 !important',
+        color: 'white !important',
         transform: 'translateY(-1px) !important',
-        border: '1px solid #F6AD55 !important',
+        border: '1px solid #4fd1c5 !important',
     }
         },
         

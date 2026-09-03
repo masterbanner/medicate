@@ -55,7 +55,7 @@ const EU_COUNTRIES = [
 ];
 
 function DomainCheck() {
-    return location.hostname === 'dev-trackingproguru.pantheonsite.io';
+    return location.hostname === 'medicatie.nu';
 }
 
   
